@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Sentence:</b>
+  <%= @sentence.sentence %>
+</p>
+
+<p>
+  <b>Language:</b>
+  <%= @sentence.language_id %>
+</p>
+
+<p>
+  <b>Master sentence:</b>
+  <%= @sentence.master_sentence_id %>
+</p>
+
+<p>
+  <b>Categories:</b>
+  <% if @sentence.categories.any? %>
+  	<% @sentence.categories.each do |category| %>
+  		<%= category.category %><br />
+  	<% end %>
+  <% end %>
+</p>
+
+
+<%= link_to 'Edit', edit_sentence_path(@sentence) %> |
+<%= link_to 'Back', sentences_path %>

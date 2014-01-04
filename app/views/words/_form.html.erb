@@ -1,0 +1,42 @@
+<%= form_for(@word) do |f| %>
+  <% if @word.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@word.errors.count, "error") %> prohibited this word from being saved:</h2>
+
+      <ul>
+      <% @word.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :word %><br>
+    <%= f.text_field :word %>
+  </div>
+  <div class="field">
+    <%= f.label :language_id %><br>
+    <%= f.select :language_id, options_for_select(Language.all.map{ |l| [l.language, l.id] }, selected: @word.language_id), prompt: 'Choose a language' %>
+  </div>
+  <div class="field">
+    <%= f.label :master_word_id %><br>
+    <%= f.select :master_word_id, options_for_select(Word.all.map{ |l| [l.word, l.id] }, selected: @word.word), prompt: 'Choose a word' %>
+  </div>
+
+  <div class="field">
+    <p class="large-font">Choose the categories associated with this word</p>
+  <% for category in Category.all %>
+      <label class="checkbox inline col-xs-2">
+        <%= check_box_tag 'word[category_ids][]', category.id, @word.categories.include?(category) %>
+        <%= link_to category.category, category_path(category) %>
+      </label>
+    <% end %>
+  </div>
+  <div class="clearfix"></div>
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,38 @@
+<%= form_for(@sentence) do |f| %>
+  <% if @sentence.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@sentence.errors.count, "error") %> prohibited this sentence from being saved:</h2>
+
+      <ul>
+      <% @sentence.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :sentence %><br>
+    <%= f.text_area :sentence %>
+  </div>
+  <div class="field">
+    <%= f.label :language_id %><br>
+    <%= f.select :language_id, options_for_select(Language.all.map{ |l| [l.language, l.id] }, selected: @sentence.language_id), prompt: 'Choose a language' %>
+  </div>
+  <div class="field">
+    <%= f.label :master_sentence_id %><br>
+    <%= f.select :master_sentence_id, options_for_select(Sentence.all.map{ |l| [l.sentence, l.id] }, selected: @sentence.sentence), prompt: 'Choose a sentence' %>
+  </div>
+  <div class="field">
+    <p class="large-font">Choose the themes associated with this word</p>
+  <% for category in Category.all %>
+      <label class="checkbox inline one column height-one-fifty">
+        <%= check_box_tag 'sentence[category_ids][]', category.id, @sentence.categories.include?(category) %>
+        <%= link_to category.category, category_path(category) %>
+      </label>
+    <% end %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

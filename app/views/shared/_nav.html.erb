@@ -1,0 +1,33 @@
+<header id="top-nav">
+	<nav class="navbar navbar-default" role="navigation">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+   <!--  <ul>
+		<button type="button" class="btn btn-default btn-lg">
+  			<span class="glyphicon glyphicon-circle-arrow-left"></span>
+		</button>
+	</ul> -->
+    <a class="navbar-brand text-center" href="#">Lang App</a>
+  </div>
+
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <ul class="nav navbar-nav">
+      	<li><%= link_to 'Words', words_path %></li>
+		<li><%= link_to 'Sentences', sentences_path %></li>
+		<li><%= link_to 'Change target language', languages_path %></li>
+		<li><%= link_to 'Change mother tongue', languages_path %></li>
+		<li><%= link_to 'Choose Category', categories_path %></li>
+		<li>Sign out</li>
+    </ul>
+    
+  </div><!-- /.navbar-collapse -->
+</nav>
+	
+</header>

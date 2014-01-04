@@ -1,0 +1,23 @@
+<div class="text-center">
+  <h1>Choose a language</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th></th> 
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @languages.each do |language| %>
+        <tr>
+          <td><%= link_to language.language, language %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'New Language', new_language_path, class: 'btn btn-success' %>
+</div>

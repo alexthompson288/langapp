@@ -1,0 +1,36 @@
+<h1>Listing sentences</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <!-- <th>Language</th>
+      <th>Master sentence</th>
+      <th>Categories</th> -->
+     <!--  <th></th>
+      <th></th>
+      <th></th> -->
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sentences.each do |sentence| %>
+      <tr>
+        <td><%= link_to sentence.sentence, sentence %></td>
+        <td><span class="glyphicon glyphicon-play-circle"></span></td>
+        <td><span class="glyphicon glyphicon-plus-sign"></span></td>
+        <td><span class="glyphicon glyphicon-refresh"></span></td>
+        <!-- <td><%= link_to 'Show', sentence %></td>
+        <td><%= link_to 'Edit', edit_sentence_path(sentence) %></td>
+        <td><%= link_to 'Destroy', sentence, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Sentence', new_sentence_path, class: 'btn btn-success' %>

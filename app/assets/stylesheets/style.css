@@ -1,0 +1,65 @@
+body{
+	/*background-color: rgb(216, 216, 253);*/
+}
+
+.text-center{
+	text-align: center;
+	margin: 0 auto;
+}
+
+table{
+	margin: 0 auto;
+}
+
+a{
+	color:black;
+}
+
+li{
+	text-decoration: none;
+	list-style-type: none;
+}
+
+th{
+	text-align: center;
+}
+
+.bs-glyphicons .glyphicon {
+  margin-top: 5px;
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+
+.glyphicon:empty {
+width: 1.4em;
+}
+
+.eighteen{
+	width: 40px;
+	height: 40px;
+}
+
+.nav-tabs > li{
+	width: 48%;
+}
+
+ul.nav-tabs{
+	width: 50%;
+	margin: 0 auto;
+}
+
+.glyphicon{
+	font-size: 1.6em;
+}
+
+/*Index pages for word and sentence*/
+
+.hide-text{
+	display: none;
+}
+
+.show-text{
+	display: inline
+}
+
+

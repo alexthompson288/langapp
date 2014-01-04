@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Word:</b>
+  <%= @word.word %>
+</p>
+
+<p>
+  <b>Language:</b>
+  <%= @word.language_id %>
+</p>
+
+<p>
+  <b>Master word:</b>
+  <%= @word.master_word_id %>
+</p>
+
+<p>
+  <b>Categories:</b>
+  <% if @word.categories.any? %>
+  	<% @word.categories.each do |category| %>
+  		<%= category.category %><br />
+  	<% end %>
+  <% end %>
+</p>
+
+
+<%= link_to 'Edit', edit_word_path(@word) %> |
+<%= link_to 'Back', words_path %>

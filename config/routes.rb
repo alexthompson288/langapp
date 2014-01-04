@@ -1,4 +1,8 @@
 Langapp1::Application.routes.draw do
+  devise_for :users
+
+  resources :users
+
   resources :words
 
   resources :sentences

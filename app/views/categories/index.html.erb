@@ -10,7 +10,7 @@
     <h2>Generic categories</h2>
     <ul>
     <% @categoriesgeneric.each do |g| %>
-      <li><%= link_to g.category, g %></li>
+      <li class="black-box-border"><%= link_to g.category, g %></li>
     <% end %>
     </ul>
   </div>
@@ -18,7 +18,7 @@
       <h2>Custom categories</h2>
       <ul>
       <% @categoriescustom.each do |c| %>
-      <li><%= link_to c.category, c %></li>
+      <li class="black-box-border"><%= link_to c.category, c %></li>
     <% end %>
     </ul>
   </div>

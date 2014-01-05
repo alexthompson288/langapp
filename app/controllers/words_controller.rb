@@ -1,8 +1,12 @@
 class WordsController < ApplicationController
   # GET /words
   # GET /words.json
+
+  
   def index
-    @words = Word.all
+    
+    @nativewords = Word.where(:language_id => current_user.mothertongue_id)
+    @targetwords = Word.where(:language_id => current_user.targettongue_id)
     @englishukwords = Word.where(:language_id => '1')
     @englishuswords = Word.where(:language_id => '2')
     @spanishwords = Word.where(:language_id => '3')

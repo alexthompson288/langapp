@@ -12,13 +12,16 @@
     </thead>
 
     <tbody>
-      <% @englishukwords.each do |engword| %>
+      
+     
+      <hr>
+      <% @targetwords.each do |target| %>
         
-          <tr class="show-text word-id-<%= engword.id %> language-id-<%= engword.language_id %>">
-            <td class="word-no-<%= engword.id %>"><%= link_to engword.word, engword %></td>
+          <tr class="show-text word-id-<%= target.id %> language-id-<%= target.language_id %>">
+            <td class="word-no-<%= target.id %>"><%= link_to target.word, target %></td>
             <td>
               <a href="#">
-                <span id="dummy" onclick="playSound(this, 'assets/<%= engword.word %>.wav');">
+                <span id="dummy" onclick="playSound(this, 'assets/<%= target.word %>.wav');">
                   <span class="glyphicon glyphicon-play-circle">
                   </span>
                 </span>
@@ -30,13 +33,13 @@
                 </span>
               </a>
             </td>
-            <td class="word-no-<%= engword.id %>"><a href="#" class="translate"><span class="glyphicon glyphicon-refresh"></span></a></td>
+            <td class="word-no-<%= target.id %>"><a href="#" class="translate"><span class="glyphicon glyphicon-refresh"></span></a></td>
           </tr>
 
             
 
-            <% @spanishwords.each do |word| %>
-              <% if word.master_word_id == engword.id %>
+            <% @nativewords.each do |word| %>
+              <% if word.master_word_id == target.id %>
                 <tr class="hide-text word-id-<%= word.id %> language-id-<%= word.language_id %>">
                   <td class="word-no-<%= word.id %>"><%= link_to word.word, word %></td>
                   <td><a href="#"><span class="glyphicon glyphicon-play-circle"></span></a></td>

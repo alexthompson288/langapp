@@ -24,6 +24,15 @@ th{
 	text-align: center;
 }
 
+tr{
+	border: 1px solid black;
+
+}
+
+td{
+	padding: 20px 30px;
+}
+
 .bs-glyphicons .glyphicon {
   margin-top: 5px;
   margin-bottom: 10px;
@@ -59,7 +68,25 @@ ul.nav-tabs{
 }
 
 .show-text{
-	display: inline
+	display: block
 }
+
+.black-box-border{
+	border: 1px solid black;
+	padding: 20px 30px;
+	width: 50%;
+	margin: 0px auto;
+	text-decoration: none;
+}
+
+.black-box-border a{
+	text-decoration: none;
+}
+
+.black-box-border a:hover{
+	background-color: black;
+	color: white;
+}
+
 
 

@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Email:</b>
+  <%= @user.email %>
+</p>
+
+<p>
+  <b>Mother tongue:</b>
+  <% if @user.mothertongue_id.present? %>
+    <% language = Language.find(@user.mothertongue_id) %>
+    <%= language.language %>
+  <% end %>
+</p>
+
+<p>
+  <b>Target tongue:</b>
+  <% if @user.targettongue_id.present? %>
+    <% language = Language.find(@user.targettongue_id) %>
+    <%= language.language %>
+  <% end %>
+</p>
+
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

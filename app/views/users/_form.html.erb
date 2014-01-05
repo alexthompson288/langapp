@@ -1,0 +1,31 @@
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :mothertongue_id %><br>
+    <%= f.select :mothertongue_id, options_for_select(Language.all.map{ |l| [l.language, l.id] }, selected: @user.mothertongue_id), prompt: 'What is your mother tongue' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :targettongue_id %><br>
+    <%= f.select :targettongue_id, options_for_select(Language.all.map{ |l| [l.language, l.id] }, selected: @user.targettongue_id), prompt: 'What is your target language' %>
+  </div>
+  <br />
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

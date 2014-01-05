@@ -4,7 +4,9 @@
   <table>
     <thead>
       <tr>
-        <th></th> 
+        <th>Email</th> 
+        <th>Native language</th> 
+        <th>Target language</th> 
       </tr>
     </thead>
 
@@ -12,6 +14,18 @@
       <% @users.each do |user| %>
         <tr>
           <td><%= user.email %></td>
+
+          <td>
+            <% if user.mothertongue_id.present? %>
+              <% language = Language.find(user.mothertongue_id) %>
+              <%= language.language %>
+            <% end %></td>
+          <td>
+            <% if user.targettongue_id.present? %>
+              <% language = Language.find(user.targettongue_id) %>
+              <%= language.language %>
+            <% end %>
+          </td>
         </tr>
       <% end %>
     </tbody>

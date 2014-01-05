@@ -3,6 +3,8 @@ class SentencesController < ApplicationController
   # GET /sentences.json
   def index
     @sentences = Sentence.all
+    @nativesentences = Sentence.where(:language_id => current_user.mothertongue_id)
+    @targetsentences = Sentence.where(:language_id => current_user.targettongue_id)
 
     respond_to do |format|
       format.html # index.html.erb

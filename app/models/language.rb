@@ -3,4 +3,5 @@ class Language < ActiveRecord::Base
 
   has_many :sentences
   has_many :words
+  
 end

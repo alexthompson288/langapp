@@ -4,13 +4,8 @@ class WordsController < ApplicationController
 
   
   def index
-    
-    @nativewords = Word.where(:language_id => current_user.mothertongue_id)
-    @targetwords = Word.where(:language_id => current_user.targettongue_id)
-    @englishukwords = Word.where(:language_id => '1')
-    @englishuswords = Word.where(:language_id => '2')
-    @spanishwords = Word.where(:language_id => '3')
-    @frenchwords = Word.where(:language_id => '4')
+
+    @words = Word.all
 
     respond_to do |format|
       format.html # index.html.erb

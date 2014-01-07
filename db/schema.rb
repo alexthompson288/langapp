@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140104185232) do
+ActiveRecord::Schema.define(:version => 20140106235831) do
 
   create_table "categories", :force => true do |t|
     t.string   "category"
@@ -48,6 +48,12 @@ ActiveRecord::Schema.define(:version => 20140104185232) do
     t.integer  "master_sentence_id"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
+    t.text     "spanish"
+    t.text     "french"
+    t.text     "german"
+    t.text     "mandarin"
+    t.text     "russian"
+    t.text     "arabic"
   end
 
   create_table "users", :force => true do |t|
@@ -76,6 +82,12 @@ ActiveRecord::Schema.define(:version => 20140104185232) do
     t.integer  "master_word_id"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
+    t.string   "spanish"
+    t.string   "french"
+    t.string   "german"
+    t.string   "mandarin"
+    t.string   "russian"
+    t.string   "arabic"
   end
 
 end

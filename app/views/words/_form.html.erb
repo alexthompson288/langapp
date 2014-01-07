@@ -15,14 +15,23 @@
     <%= f.label :word %><br>
     <%= f.text_field :word %>
   </div>
+
   <div class="field">
-    <%= f.label :language_id %><br>
-    <%= f.select :language_id, options_for_select(Language.all.map{ |l| [l.language, l.id] }, selected: @word.language_id), prompt: 'Choose a language' %>
+    <%= f.label :spanish %><br>
+    <%= f.text_field :spanish %>
   </div>
+
   <div class="field">
-    <%= f.label :master_word_id %><br>
-    <%= f.select :master_word_id, options_for_select(Word.all.map{ |l| [l.word, l.id] }, selected: @word.word), prompt: 'Choose a word' %>
+    <%= f.label :french %><br>
+    <%= f.text_field :french %>
   </div>
+
+  <div class="field">
+    <%= f.label :german %><br>
+    <%= f.text_field :german %>
+  </div>
+  
+
 
   <div class="field">
     <p class="large-font">Choose the categories associated with this word</p>

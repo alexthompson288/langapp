@@ -17,16 +17,44 @@
   </thead>
 
   <tbody>
-    <% @targetsentences.each do |sentence| %>
+    <% @sentences.each do |sentence| %>
       <tr>
-        <td><%= link_to sentence.sentence, sentence %></td>
-        <td><span class="glyphicon glyphicon-play-circle"></span></td>
-        <td><span class="glyphicon glyphicon-plus-sign"></span></td>
-        <td><span class="glyphicon glyphicon-refresh"></span></td>
+        <td><%= link_to sentence.sentence, sentence, class: 'show-text' %>
+        </td>
+        <td>
+              <a href="#">
+                <span id="dummy" onclick="playSound(this, 'assets/<%= sentence.sentence %>.wav');">
+                  <span class="glyphicon glyphicon-play-circle">
+                  </span>
+                </span>
+              </a>
+            </td>
+            <td>
+              <a href="#">
+                <span class="glyphicon glyphicon-plus-sign">
+                </span>
+              </a>
+            </td>
+            <td class="sentence-no-<%= sentence.id %>"><a href="#" class="translate"><span class="glyphicon glyphicon-refresh"></span></a>
+            </td>
+          </tr>
+
         <!-- <td><%= link_to 'Show', sentence %></td>
         <td><%= link_to 'Edit', edit_sentence_path(sentence) %></td>
         <td><%= link_to 'Destroy', sentence, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
-      </tr>
+
+        <tr class="hide-text sentence-id-<%= sentence.id %>">
+            <td class="sentence-no-<%= sentence.id %>">
+              <% lang = current_user.targettongue_id %>
+              <% lang = Language.find(lang) %>
+              <% lang = lang.language %>
+              <%= link_to sentence.french, lang %>
+            </td>
+            <td><a href="#"><span class="glyphicon glyphicon-play-circle"></span></a></td>
+            <td><a href="#"><span class="glyphicon glyphicon-plus-sign"></span></a></td>
+            <td class="sentence-no-<%= sentence.id %>"><a href="#"><span class="glyphicon glyphicon-refresh"></span></a></td>
+          </tr>
+      
     <% end %>
   </tbody>
 </table>

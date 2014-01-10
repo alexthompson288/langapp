@@ -1,4 +1,6 @@
 Langapp1::Application.routes.draw do
+  resources :scores
+
   devise_for :users
 
   resources :users
@@ -7,9 +9,12 @@ Langapp1::Application.routes.draw do
 
   resources :languages
 
-  resources :words
+  
 
   resources :categories
+  
+  resources :words
+  
 
 
   # The priority is based upon order of creation:

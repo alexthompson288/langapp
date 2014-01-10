@@ -19,7 +19,7 @@
   <!-- Collect the nav links, forms, and other content for toggling -->
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav">
-      	<li><%= link_to 'Words', words_path %></li>
+    <li><%= link_to 'Words', words_path %></li>
 		<li><%= link_to 'Sentences', sentences_path %></li>
 		<li><% if user_signed_in? %><%= link_to 'Change Language', edit_user_path(current_user) %><% end %></li>
 		<li><%= link_to 'Choose Category', categories_path %></li>

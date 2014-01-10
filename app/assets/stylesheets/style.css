@@ -2,6 +2,10 @@ body{
 	/*background-color: rgb(216, 216, 253);*/
 }
 
+td a{
+	font-size: 1.4em;
+}
+
 .text-center{
 	text-align: center;
 	margin: 0 auto;
@@ -35,7 +39,7 @@ tr{
 }
 
 td{
-	padding: 20px 30px;
+	padding: 20px 5px;
 }
 
 .bs-glyphicons .glyphicon {
@@ -45,7 +49,7 @@ td{
 }
 
 .glyphicon:empty {
-width: 1.4em;
+width: 2.6em;
 }
 
 .eighteen{
@@ -63,7 +67,7 @@ ul.nav-tabs{
 }
 
 .glyphicon{
-	font-size: 1.6em;
+	font-size: 2.8em;
 }
 
 /*Index pages for word and sentence*/

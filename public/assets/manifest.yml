@@ -4,8 +4,12 @@ glyphicons-halflings-regular.svg: glyphicons-halflings-regular-cce22b0934f6585c0
 glyphicons-halflings-regular.ttf: glyphicons-halflings-regular-8055600f75e6bb0501e45199be9aa3b8.ttf
 glyphicons-halflings-regular.woff: glyphicons-halflings-regular-5f672ac814e7743641ddafd77c5979ac.woff
 glass.wav: glass-39ee210262b30e75f29a1907bcc47137.wav
+icons_flags_english.png: icons_flags_english-32f967cb426f40904809ccb8c5ba1ce4.png
+icons_flags_french.png: icons_flags_french-f6643babdcae3e6d3a47ad422ecc3372.png
+icons_flags_mandarin.png: icons_flags_mandarin-cb011b70e5c925276c6fdeda2ed78fa9.png
+icons_flags_spanish.png: icons_flags_spanish-4235a41c9afc95b53286a33ab7cd5d8b.png
 rails.png: rails-be8732dac73d845ac5b142c8fb5f9fb0.png
 vase.wav: vase-c07a7f04b38ae83e0918f0c4498a04c2.wav
-application.js: application-7b87aab83f5ceb93df50816cfb44a7ea.js
-application.css: application-4f4b4ee4c9ca3f9868d5f96a21df3bbe.css
+application.js: application-43b7c6ff6a9dec44235a70ad814d5c47.js
+application.css: application-e97ec434d2ed09cd952af050f9f2c231.css
 jquery.min.map: jquery.min-70bec01470bf6bcfed5892ae554b38c8.map

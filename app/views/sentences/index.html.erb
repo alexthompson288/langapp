@@ -19,7 +19,17 @@
   <tbody>
     <% @sentences.each do |sentence| %>
       <tr>
-        <td><%= link_to sentence.sentence, sentence, class: 'show-text' %>
+        <td>
+          <% lang = current_user.mothertongue_id %>
+              <% lang = Language.find(lang) %>
+              <% lang = lang.language %>
+              <% if lang == 'french' %>
+                <%= link_to sentence.french, lang, class: 'show-text' %>
+              <% elsif lang == 'spanish' %>
+                <%= link_to sentence.spanish, lang, class: 'show-text' %>
+              <% else %>
+                <%= link_to sentence.sentence, lang, class: 'show-text' %>
+              <% end %>
         </td>
         <td>
               <a href="#">
@@ -48,7 +58,14 @@
               <% lang = current_user.targettongue_id %>
               <% lang = Language.find(lang) %>
               <% lang = lang.language %>
-              <%= link_to sentence.french, lang %>
+              <% if lang == 'french' %>
+                <%= link_to sentence.french, lang %>
+              <% elsif lang == 'spanish' %>
+                <%= link_to sentence.spanish, lang %>
+              <% else %>
+                <%= link_to sentence.english, lang %>
+              <% end %>
+                
             </td>
             <td><a href="#"><span class="glyphicon glyphicon-play-circle"></span></a></td>
             <td><a href="#"><span class="glyphicon glyphicon-plus-sign"></span></a></td>

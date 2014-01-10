@@ -15,6 +15,22 @@
     <%= f.label :email %><br>
     <%= f.text_field :email %>
   </div>
+
+  <div class="field">
+    <%= f.label :jobtitle %><br>
+    <%= f.text_field :jobtitle %>
+  </div>
+
+  <div class="field">
+    <%= f.label :city %><br>
+    <%= f.text_field :city %>
+  </div>
+
+  <div class="field">
+    <%= f.label :nationality %><br>
+    <%= f.text_field :nationality %>
+  </div>
+  
   <div class="field">
     <%= f.label :mothertongue_id %><br>
     <%= f.select :mothertongue_id, options_for_select(Language.all.map{ |l| [l.language, l.id] }, selected: @user.mothertongue_id), prompt: 'What is your mother tongue' %>

@@ -4,7 +4,10 @@
   <table>
     <thead>
       <tr>
-        <th>Email</th> 
+        <th>Email</th>
+        <th>Job</th>
+        <th>Nationality</th>
+        <th>City</th> 
         <th>Native language</th> 
         <th>Target language</th> 
       </tr>
@@ -14,16 +17,30 @@
       <% @users.each do |user| %>
         <tr>
           <td><%= user.email %></td>
+          <td><%= user.jobtitle %></td>
+          <td><%= user.nationality %></td>
+          <td><%= user.city %></td>
 
           <td>
             <% if user.mothertongue_id.present? %>
               <% language = Language.find(user.mothertongue_id) %>
-              <%= language.language %>
+              <span class="flag-icon"><img src="/assets/icons_flags_<%= language.language %>.png"</span>
+              <%= language.language.capitalize %><br /> 
+              <% if Score.where(:user_id => user.id) %>
+                <% scores = Score.where(:user_id => user.id) %>
+                <% scores.each do |score| %>
+                  
+                  <% if score.user_id == user.id %>
+                    Score: <%= score.number %>
+                  <% end %>
+                <% end %>
+              <% end %>
             <% end %></td>
           <td>
             <% if user.targettongue_id.present? %>
               <% language = Language.find(user.targettongue_id) %>
-              <%= language.language %>
+              <span class="flag-icon"><img src="/assets/icons_flags_<%= language.language %>.png"</span>
+              <%= language.language.capitalize %>
             <% end %>
           </td>
         </tr>

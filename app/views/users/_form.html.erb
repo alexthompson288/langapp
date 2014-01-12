@@ -30,18 +30,20 @@
     <%= f.label :nationality %><br>
     <%= f.text_field :nationality %>
   </div>
-  
+  <br />
   <div class="field">
-    <%= f.label :mothertongue_id %><br>
+    <%= f.label 'My mother tongue is ' %><br>
     <%= f.select :mothertongue_id, options_for_select(Language.all.map{ |l| [l.language, l.id] }, selected: @user.mothertongue_id), prompt: 'What is your mother tongue' %>
   </div>
-
+  
+  <br />
   <div class="field">
-    <%= f.label :targettongue_id %><br>
+    <%= f.label 'I want to learn ' %><br>
     <%= f.select :targettongue_id, options_for_select(Language.all.map{ |l| [l.language, l.id] }, selected: @user.targettongue_id), prompt: 'What is your target language' %>
   </div>
   <br />
   <div class="actions">
-    <%= f.submit %>
+
+    <%= f.submit "Save changes" %>
   </div>
 <% end %>

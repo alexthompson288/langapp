@@ -13,9 +13,9 @@ $(document).ready(function(){
 		var nativecontent = $(this).parent().parent().find('.native-content-box');
 		console.log('native is ' + nativecontent.get());
 		target.toggle();
-		target.toggle();
+		
 		nativecontent.toggle();
-		nativecontent.toggle();
+		
 	});
 
 	$('a.add-contentuser').on('click', function(e){

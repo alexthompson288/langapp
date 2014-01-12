@@ -24,7 +24,7 @@
           <td>
             <% if user.mothertongue_id.present? %>
               <% language = Language.find(user.mothertongue_id) %>
-              <span class="flag-icon"><img src="/assets/icons_flags_<%= language.language %>.png"</span>
+              <span class="flag-icon"><img src="/assets/icons_flags_<%= language.language %>.png"></span>
               <%= language.language.capitalize %><br /> 
               <% if Score.where(:user_id => user.id) %>
                 <% scores = Score.where(:user_id => user.id) %>
@@ -39,7 +39,7 @@
           <td>
             <% if user.targettongue_id.present? %>
               <% language = Language.find(user.targettongue_id) %>
-              <span class="flag-icon"><img src="/assets/icons_flags_<%= language.language %>.png"</span>
+              <span class="flag-icon"><img src="/assets/icons_flags_<%= language.language %>.png"></span>
               <%= language.language.capitalize %>
             <% end %>
           </td>

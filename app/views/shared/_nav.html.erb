@@ -24,7 +24,18 @@
       <li>Hi <strong><%= current_user.email %></strong></li>
       <br />
       <li><%= link_to 'Saved content', contentusers_path %></li>
-      <li><%= link_to 'Change Language', edit_user_path(current_user) %></li>
+      <li>
+        <% if current_user.mothertongue_id.present? %>
+          <% language = Language.find(current_user.mothertongue_id) %>
+          <img class="language-icon-nav" src="/assets/icons_flags_<%= language.language %>.png">
+        <% end %>
+        <img src="">
+        <% if current_user.targettongue_id.present? %>
+          <% language = Language.find(current_user.targettongue_id) %>
+          <img class="language-icon-nav" src="/assets/icons_flags_<%= language.language %>.png">
+        <% end %>
+        <%= link_to 'Change Language', edit_user_path(current_user) %>
+      </li>
      <li> <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %></li>
       <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
     <% else %>

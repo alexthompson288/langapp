@@ -8,7 +8,7 @@
 <div class="tab-content">
   <div class="tab-pane fade in active" id="generic">
     <h2>Generic categories</h2>
-    <ul>
+    <ul class="no-padding">
     <% @categoriesgeneric.each do |g| %>
       <a href="/categories/<%= g.id %>" class="category-choice">
         <li class="black-box-border">
@@ -21,7 +21,7 @@
   </div>
   <div class="tab-pane fade" id="custom">
       <h2>Custom categories</h2>
-      <ul>
+      <ul class="no-padding">
       <% @categoriescustom.each do |c| %>
       <a href="/categories/<%= c.id %>" class="category-choice">
         <li class="black-box-border">

@@ -6,6 +6,10 @@ $(document).ready(function(){
 	  // console.log('Clicked '+this)
 	});	
 
+	$('a.play-audio').on('click', function(e){
+		e.preventDefault();
+	});
+
 	$('a.translate').on('click', function(e){
 		e.preventDefault();
 		var target = $(this).parent().parent().find('.target-content-box');
@@ -14,7 +18,7 @@ $(document).ready(function(){
 		console.log('native is ' + nativecontent.get());
 		target.toggle();
 		nativecontent.toggle();
-	
+
 		
 	});
 

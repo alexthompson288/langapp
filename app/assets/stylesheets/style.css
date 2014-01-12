@@ -2,6 +2,22 @@ body{
 	/*background-color: rgb(216, 216, 253);*/
 }
 
+h1{
+	font-size: 22px;
+}
+
+h2{
+	font-size: 18px;
+}
+
+h3{
+	font-size: 16px;
+}
+
+.no-padding{
+	padding: 0px;
+}
+
 .container{
 	padding: 0px;
 }

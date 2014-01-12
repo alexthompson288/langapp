@@ -1,0 +1,40 @@
+<h1>Saved content</h1>
+
+<table>
+  
+
+<% @contentusers.each do |contentuser| %>
+  <tr>
+    <% word = Word.find(contentuser.word_id) %>
+    <td class="word-no-<%= word.id %> content-container">
+      <span class="target-content-box">
+        <%= word.word %>
+      </span>
+      <% lang = current_user.targettongue_id %>
+      <% lang = Language.find(lang) %>
+      <% lang = lang.language %>
+      <span class="native-content-box">
+        <%= word.french %>
+      </span>
+    </td>
+    <td class="glyphicon-container">
+      <a href="#">
+        <span id="dummy" onclick="playSound(this, 'assets/<%= word.word %>.wav');">
+          <span class="glyphicon glyphicon-play-circle">
+          </span>
+        </span>
+      </a>
+    </td>
+    <td class="glyphicon-container word-no-<%= word.id %>">
+      <a href="#" class="translate">
+        <span class="glyphicon glyphicon-refresh">
+        </span>
+      </a>
+    </td>
+    <td><%= link_to 'Remove', contentuser, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+

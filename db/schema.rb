@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140107231210) do
+ActiveRecord::Schema.define(:version => 20140111191610) do
 
   create_table "categories", :force => true do |t|
     t.string   "category"
@@ -20,14 +20,6 @@ ActiveRecord::Schema.define(:version => 20140107231210) do
     t.boolean  "custom",     :default => false
   end
 
-  create_table "categories_sentences", :id => false, :force => true do |t|
-    t.integer "category_id"
-    t.integer "sentence_id"
-  end
-
-  add_index "categories_sentences", ["category_id"], :name => "index_categories_sentences_on_category_id"
-  add_index "categories_sentences", ["sentence_id"], :name => "index_categories_sentences_on_sentence_id"
-
   create_table "categories_words", :id => false, :force => true do |t|
     t.integer "category_id"
     t.integer "word_id"
@@ -35,6 +27,19 @@ ActiveRecord::Schema.define(:version => 20140107231210) do
 
   add_index "categories_words", ["category_id"], :name => "index_categories_words_on_category_id"
   add_index "categories_words", ["word_id"], :name => "index_categories_words_on_word_id"
+
+  create_table "contentusers", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "word_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "games", :force => true do |t|
+    t.string   "game"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "languages", :force => true do |t|
     t.string   "language"
@@ -45,23 +50,11 @@ ActiveRecord::Schema.define(:version => 20140107231210) do
   create_table "scores", :force => true do |t|
     t.integer  "number"
     t.integer  "user_id"
-    t.integer  "language_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-  end
-
-  create_table "sentences", :force => true do |t|
-    t.text     "sentence"
-    t.integer  "language_id"
-    t.integer  "master_sentence_id"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
-    t.text     "spanish"
-    t.text     "french"
-    t.text     "german"
-    t.text     "mandarin"
-    t.text     "russian"
-    t.text     "arabic"
+    t.integer  "mothertongue_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+    t.integer  "targettongue_id"
+    t.integer  "game_id"
   end
 
   create_table "users", :force => true do |t|
@@ -87,26 +80,19 @@ ActiveRecord::Schema.define(:version => 20140107231210) do
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
-  create_table "users_words", :id => false, :force => true do |t|
-    t.integer "user_id"
-    t.integer "word_id"
-  end
-
-  add_index "users_words", ["user_id"], :name => "index_users_words_on_user_id"
-  add_index "users_words", ["word_id"], :name => "index_users_words_on_word_id"
-
   create_table "words", :force => true do |t|
     t.string   "word"
     t.integer  "language_id"
     t.integer  "master_word_id"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
     t.string   "spanish"
     t.string   "french"
     t.string   "german"
     t.string   "mandarin"
     t.string   "russian"
     t.string   "arabic"
+    t.boolean  "sentence",       :default => false
   end
 
 end

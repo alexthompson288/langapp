@@ -1,4 +1,8 @@
 Langapp1::Application.routes.draw do
+  resources :contentusers
+
+  resources :games
+
   resources :scores
 
   devise_for :users
@@ -11,9 +15,17 @@ Langapp1::Application.routes.draw do
 
   
 
-  resources :categories
+  resources :categories do
+    resources :words
+    resources :sentences
+
+    member do
+      get 'test'
+    end
+    
+  end
   
-  resources :words
+  
   
 
 

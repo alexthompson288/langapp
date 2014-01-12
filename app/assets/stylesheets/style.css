@@ -2,6 +2,19 @@ body{
 	/*background-color: rgb(216, 216, 253);*/
 }
 
+a, li a, a li{
+	text-decoration: none;
+}
+
+a:hover{
+	text-decoration: none;
+}
+
+.btn{
+	padding: 20px 48px;
+}
+
+
 td a{
 	font-size: 1.4em;
 }
@@ -13,6 +26,8 @@ td a{
 
 table{
 	margin: 0 auto;
+	width: 100%;
+	border-color: rgba(235,96,78,1);
 }
 
 textarea{
@@ -34,8 +49,8 @@ th{
 }
 
 tr{
-	border: 1px solid black;
-
+	border: 3px solid;
+	border-color: rgba(235,96,78,1);
 }
 
 td{
@@ -49,7 +64,7 @@ td{
 }
 
 .glyphicon:empty {
-width: 2.6em;
+
 }
 
 .eighteen{
@@ -61,13 +76,22 @@ width: 2.6em;
 	width: 48%;
 }
 
+.navbar-nav li:hover{
+background-color: white;
+color:black;
+}
+
 ul.nav-tabs{
-	width: 50%;
+	width: 100%;
 	margin: 0 auto;
 }
 
 .glyphicon{
 	font-size: 2.8em;
+}
+
+.category-icon{
+	width: 10%;
 }
 
 /*Index pages for word and sentence*/
@@ -77,13 +101,28 @@ ul.nav-tabs{
 }
 
 .show-text{
-	display: block
+	
+}
+
+.btn-success{
+	background-color:rgba(235,96,78,1);
+	border-color: rgba(235,96,78,1);
+}
+
+.btn-success:hover{
+	background-color:rgba(215,96,78,1);
+	border-color: rgba(255,96,78,1);
+}
+
+.words-index td.content-container{
+	font-size: 1.4em;
 }
 
 .black-box-border{
-	border: 1px solid black;
+	border: 1px solid;
+	border-color: rgba(235,96,78,1);
 	padding: 20px 30px;
-	width: 50%;
+	width: 100%;
 	margin: 0px auto;
 	text-decoration: none;
 }
@@ -95,6 +134,52 @@ ul.nav-tabs{
 .black-box-border a:hover{
 	background-color: black;
 	color: white;
+}
+
+.content-container{
+	width: 70%;
+}
+.glyphicon-container{
+	width: 10%;
+}
+
+.navbar-default{
+	background-color:rgba(235,96,78,1);
+	color:white;
+}
+
+.navbar-default .navbar-brand{
+	color:white;
+}
+.navbar-default .navbar-nav>li>a{
+	color:white;
+}
+
+h1#logo{
+	margin: 0px;
+	padding: 10px 20px;
+	font-size: 1.6em;
+}
+
+.category-choice:hover li{
+	background-color:rgba(235,96,78,1);
+	color: white;
+}
+
+.content-container td{
+	font-size: 1.4em;
+}
+
+.category-choice li{
+	font-size: 1.4em;
+}
+
+.native-content-box{
+	display: none;
+}
+
+.target-content-box{
+	display: inline;
 }
 
 

@@ -4,8 +4,9 @@ class WordsController < ApplicationController
 
   
   def index
-
-    @words = Word.all
+    @category = Category.find(params[:category_id])
+    @words = @category.words.where(:sentence => false)
+    @sentences = @category.words.where(:sentence => true)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -27,7 +28,8 @@ class WordsController < ApplicationController
   # GET /words/new
   # GET /words/new.json
   def new
-    @word = Word.new
+    @category = Category.find(params[:category_id])
+    @word = @category.words.build
 
     respond_to do |format|
       format.html # new.html.erb
@@ -37,29 +39,31 @@ class WordsController < ApplicationController
 
   # GET /words/1/edit
   def edit
-    @word = Word.find(params[:id])
+    @category = Category.find(params[:category_id])
+    @word = @category.words.build
   end
 
   # POST /words
   # POST /words.json
   def create
-    @word = Word.new(params[:word])
-
-    respond_to do |format|
+    @category = Category.find(params[:category_id])
+    @word = @category.words.build(params[:word])
       if @word.save
-        format.html { redirect_to @word, notice: 'Word was successfully created.' }
-        format.json { render json: @word, status: :created, location: @word }
+        flash[:notice] = "successfully saved word"
+        redirect_to category_words_url(@category)
       else
-        format.html { render action: "new" }
-        format.json { render json: @word.errors, status: :unprocessable_entity }
+        render :action => 'new'
       end
-    end
+
+    
+   
   end
 
   # PUT /words/1
   # PUT /words/1.json
   def update
-    @word = Word.find(params[:id])
+    @category = Category.find(params[:category_id])
+    @word = @category.words.build
 
     respond_to do |format|
       if @word.update_attributes(params[:word])

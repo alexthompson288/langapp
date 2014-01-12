@@ -1,4 +1,5 @@
-<%= form_for(@word) do |f| %>
+<%= form_for([@category,@word]) do |f| %>
+<%= hidden_field_tag :category_id, params[:category_id] %>
   <% if @word.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@word.errors.count, "error") %> prohibited this word from being saved:</h2>
@@ -14,6 +15,11 @@
   <div class="field">
     <%= f.label :word %><br>
     <%= f.text_field :word %>
+  </div>
+
+  <div class="field">
+    <%= f.label :sentence %><br>
+    <%= f.check_box :sentence %>
   </div>
 
   <div class="field">

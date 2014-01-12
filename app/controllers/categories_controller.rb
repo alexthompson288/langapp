@@ -1,6 +1,12 @@
 class CategoriesController < ApplicationController
   # GET /categories
   # GET /categories.json
+
+  def test
+    @category = Category.find(params[:id])
+  end
+
+
   def index
 
     if !user_signed_in?
@@ -20,6 +26,8 @@ class CategoriesController < ApplicationController
   # GET /categories/1.json
   def show
     @category = Category.find(params[:id])
+    @words = @category.words.where(:sentence => false)
+    @sentences = @category.words.where(:sentence => true)
 
     respond_to do |format|
       format.html # show.html.erb

@@ -2,15 +2,20 @@
 
 
 <ul id="myTab" class="nav nav-tabs">
-  <li class="active" ><a href="#generic" data-toggle="tab">General</a></li>
-  <li><a href="#custom" data-toggle="tab">Custom</a></li>
+  <li class="active" ><a href="#generic" data-toggle="tab"><h2>General</h2></a></li>
+  <li><a href="#custom" data-toggle="tab"><h2>Custom</h2></a></li>
 </ul>
 <div class="tab-content">
   <div class="tab-pane fade in active" id="generic">
     <h2>Generic categories</h2>
     <ul>
     <% @categoriesgeneric.each do |g| %>
-      <li class="black-box-border"><%= link_to g.category, g %></li>
+      <a href="/categories/<%= g.id %>" class="category-choice">
+        <li class="black-box-border">
+          <img src="/assets/<%= g.categoryicon %>" class="category-icon">
+          <%= g.category %>
+        </li>
+      </a>
     <% end %>
     </ul>
   </div>
@@ -18,17 +23,15 @@
       <h2>Custom categories</h2>
       <ul>
       <% @categoriescustom.each do |c| %>
-      <li class="black-box-border"><%= link_to c.category, c %></li>
+      <a href="/categories/<%= c.id %>" class="category-choice">
+        <li class="black-box-border">
+          <img src="/assets/<%= c.categoryicon %>" class="category-icon">
+          <%= c.category %>
+        </li>
+      </a>
     <% end %>
     </ul>
   </div>
 </div>
 
-
-
-
-
-
 <br>
-
-<%= link_to 'New Category', new_category_path, class: 'btn btn-success' %>

@@ -3,4 +3,8 @@ class Category < ActiveRecord::Base
 
   has_and_belongs_to_many :words
   has_and_belongs_to_many :sentences
+
+  def categoryicon
+  	self.category.gsub(' ','').gsub('-','').downcase + '.png'
+  end	
 end

@@ -1,6 +1,11 @@
 <div>
+  <ul id="myTab" class="nav nav-tabs">
+  <li class="active" ><a href="#generic" data-toggle="tab">Words</a></li>
+  <li><a href="#custom" data-toggle="tab">Sentences</a></li>
+</ul>
+<div class="tab-content">
+  <div class="tab-pane fade in active" id="generic">
   <h1>Words</h1>
-
   <table>
     <thead>
       <tr>
@@ -12,14 +17,11 @@
     </thead>
 
     <tbody>
-      
-     
       <hr>
       <% @words.each do |word| %>
-        
           <tr class="show-text word-id-<%= word.id %> language-id-<%= word.language_id %>">
             <td class="word-no-<%= word.id %>">
-              <%= link_to word.word, word %></td>
+              <%= word.word %></td>
             <td>
               <a href="#">
                 <span id="dummy" onclick="playSound(this, 'assets/<%= word.word %>.wav');">
@@ -51,8 +53,59 @@
       <% end %>
     </tbody>
   </table>
-
   <br>
+  <%= link_to 'New Word', new_category_word_path(@category), class: 'btn btn-success' %>
+  </div>
+  <div class="tab-pane fade" id="custom">
+      <h2>Sentences</h2>
+      <table>
+    <thead>
+      <tr>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
 
-  <%= link_to 'New Word', new_word_path, class: 'btn btn-success' %>
+    <tbody>
+      <hr>
+      <% @sentences.each do |word| %>
+          <tr class="show-text word-id-<%= word.id %> language-id-<%= word.language_id %>">
+            <td class="word-no-<%= word.id %>">
+              <%= word.word %></td>
+            <td>
+              <a href="#">
+                <span id="dummy" onclick="playSound(this, 'assets/<%= word.word %>.wav');">
+                  <span class="glyphicon glyphicon-play-circle">
+                  </span>
+                </span>
+              </a>
+            </td>
+            <td>
+              <a href="#">
+                <span class="glyphicon glyphicon-plus-sign">
+                </span>
+              </a>
+            </td>
+            <td class="word-no-<%= word.id %>"><a href="#" class="translate"><span class="glyphicon glyphicon-refresh"></span></a></td>
+          </tr>
+
+          <tr class="hide-text word-id-<%= word.id %> language-id-<%= word.language_id %>">
+            <td class="word-no-<%= word.id %>">
+              <% lang = current_user.targettongue_id %>
+              <% lang = Language.find(lang) %>
+              <% lang = lang.language %>
+              <%= link_to word.french, lang %>
+            </td>
+            <td><a href="#"><span class="glyphicon glyphicon-play-circle"></span></a></td>
+            <td><a href="#"><span class="glyphicon glyphicon-plus-sign"></span></a></td>
+            <td class="word-no-<%= word.id %>"><a href="#"><span class="glyphicon glyphicon-refresh"></span></a></td>
+          </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <br>
+  <%= link_to 'New Word', new_category_word_path(@category), class: 'btn btn-success' %>
+  </div>
 </div>

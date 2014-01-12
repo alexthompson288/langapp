@@ -1,10 +1,116 @@
 <p id="notice"><%= notice %></p>
+<a class="btn btn-success" href="http://localhost:3000/categories/<%= @category.id %>/test">Take the test</a>
+<h2>
+	<img src="/assets/<%= @category.categoryicon %>" class="category-icon">
+	<%= @category.category %>
+</h2>
+<div>
+  <ul id="myTab" class="nav nav-tabs">
+  <li class="active" ><a href="#generic" data-toggle="tab"><h2>Words</h2></a></li>
+  <li><a href="#custom" data-toggle="tab"><h2>Sentences</h2></a></li>
+</ul>
+<div class="tab-content">
+  <div class="tab-pane fade in active" id="generic">
+  
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
 
-<h2><%= @category.category %></h3>
-<h3><%= link_to 'Words', words_path %></h3>
-<h3><%= link_to 'Sentences', sentences_path %></h3>
-<h3><a href="#">Tests</a></h3>
+    <tbody>
+      <hr>
+      <% @words.each do |word| %>
+          <tr data-word="<%= word.id %>" data-user="<%= current_user.id %>" class=" language-id-<%= word.language_id %> words-index">
+            <td class="word-no-<%= word.id %> content-container">
+              <span class="target-content-box">
+                <%= word.word %>
+              </span>
+              <% lang = current_user.targettongue_id %>
+              <% lang = Language.find(lang) %>
+              <% lang = lang.language %>
+              <span class="native-content-box">
+                <%= word.french %>
+              </span>
+          	</td>
+            <td class="glyphicon-container">
+              <a href="#">
+                <span id="dummy" onclick="playSound(this, 'assets/<%= word.word %>.wav');">
+                  <span class="glyphicon glyphicon-play-circle">
+                  </span>
+                </span>
+              </a>
+            </td>
+            <td class="glyphicon-container">
+              <a href="#" class="add-contentuser">
+                <span class="glyphicon glyphicon-plus-sign">
+                </span>
+              </a>
+            </td>
+            <td class="glyphicon-container word-no-<%= word.id %>">
+              <a href="#" class="translate">
+                <span class="glyphicon glyphicon-refresh">
+                </span>
+              </a>
+            </td>
+          </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <br>
+  <%= link_to 'New Word', new_category_word_path(@category), class: 'btn btn-success' %>
+  </div>
+  <div class="tab-pane fade" id="custom">
+    <table>
+    <thead>
+      <tr>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
 
+    <tbody>
+      <hr>
+      <% @sentences.each do |word| %>
+          <tr class="word-id-<%= word.id %> language-id-<%= word.language_id %>">
+            <td class="word-no-<%= word.id %> content-container">
+              <span class="target-content-box"><%= word.word %></span>
+              <% lang = current_user.targettongue_id %>
+              <% lang = Language.find(lang) %>
+              <% lang = lang.language %>
+              <span class="native-content-box"><%= word.french %></span>
+            </td>
+            <td class="glyphicon-container">
+              <a href="#">
+                <span id="dummy" onclick="playSound(this, 'assets/<%= word.word %>.wav');">
+                  <span class="glyphicon glyphicon-play-circle">
+                  </span>
+                </span>
+              </a>
+            </td>
+            <td class="glyphicon-container">
+              <a href="#">
+                <span class="glyphicon glyphicon-plus-sign">
+                </span>
+              </a>
+            </td>
+            <td class="word-no-<%= word.id %> glyphicon-container"><a href="#" class="translate"><span class="glyphicon glyphicon-refresh"></span></a></td>
+          </tr>
+
+      <% end %>
+    </tbody>
+  </table>
+  <br>
+  <%= link_to 'New Word', new_category_word_path(@category), class: 'btn btn-success' %>
+  </div>
+</div>
+<hr />
 
 <%= link_to 'Edit', edit_category_path(@category), class: 'btn btn-success' %> |
 <%= link_to 'Back', categories_path, class: 'btn btn-success' %>
